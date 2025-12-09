@@ -186,8 +186,8 @@
     <p style="margin-bottom:6px; font-weight:700;">Shajar by AU — Premium Stainless Steel Jewellery</p>
     <div style="margin-bottom:6px">
       <a class="social-icon" href="https://www.instagram.com/@shajar_by_au"><i class="fa-brands fa-instagram"></i></a>
-      <a class="social-icon" href="[https://www.tiktok.com/@](https://www.facebook.com/profile.php?id=61580490100507)"><i class="fa-brands fa-facebook"></i></a>
-      <a class="social-icon" href="https://www.tiktok.com/@"><i class="fa-brands fa-tiktok"></i></a>
+      <a class="social-icon" href="https://www.facebook.com/profile.php?id=61580490100507"><i class="fa-brands fa-facebook"></i></a>
+      <a class="social-icon" href="https://www.tiktok.com/@shajarbyau"><i class="fa-brands fa-tiktok"></i></a>
       <a class="social-icon" href="#"><i class="fa-brands fa-whatsapp"></i></a>
     </div>
     <small style="opacity:0.9">© <span id="year"></span> Shajar by AU. All rights reserved.</small>
