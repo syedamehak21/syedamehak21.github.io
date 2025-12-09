@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Shajar by AU — Premium Stainless Steel Jewellery</title>
+
+<!-- Bootstrap & FontAwesome -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+<style>
+  :root{
+    --gold: #D4AF37;
+    --dark: #0b0b0b;
+    --muted: #6b6b6b;
+  }
+  body{font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; background:#fff; color:var(--dark); margin:0;}
+  .navbar { background: #fff; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+  .navbar-brand img { height:56px; object-fit:contain; border-radius:50%; }
+
+  /* HERO */
+  .hero {
+    min-height: 78vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding: 40px 20px;
+    position:relative;
+    background: url('C:users/admin/downloads/jewl.jpg') center/cover no-repeat; /* Put your hero image file named hero.jpg in same folder */
+  }
+  .hero::before{
+    content:"";
+    position:absolute; inset:0;
+    background: linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.45));
+  }
+  .hero-inner{position:relative; z-index:2; color:#fff; max-width:900px;}
+  .hero h1{font-size: clamp(28px, 4.5vw, 54px); letter-spacing:2px; margin-bottom:14px; font-weight:700;}
+  .hero p{opacity:0.95; font-size: clamp(14px,1.3vw,18px); margin-bottom:18px;}
+  .btn-gold{background:var(--gold); color:#111; border:0; padding:12px 26px; font-weight:700; border-radius:30px; box-shadow:0 6px 18px rgba(0,0,0,0.16);}
+  .btn-gold:hover{background:#b78f2f; color:#fff;}
+
+  /* Filters */
+  .filters { text-align:center; margin-top:-30px; z-index:10; position:relative; }
+  .filter-btn { border:1px solid #eee; padding:8px 16px; border-radius:24px; background:#fff; margin:6px; cursor:pointer; transition:.18s; font-weight:600; }
+  .filter-btn.active, .filter-btn:hover { background:var(--gold); border-color:var(--gold); color:#111; }
+
+  /* Product cards */
+  .product-card { border-radius:12px; overflow:hidden; background:#fff; transition:transform .18s, box-shadow .18s; box-shadow:0 6px 22px rgba(2,6,23,0.06); }
+  .product-card:hover{ transform: translateY(-6px); box-shadow:0 12px 28px rgba(2,6,23,0.09);}
+  .product-card img { width:100%; height:230px; object-fit:cover; display:block; }
+  .price { color:var(--gold); font-weight:700; font-size:1.05rem; }
+
+  /* Cart icon */
+  .cart-btn { position:relative; }
+  .cart-count { position:absolute; top:-6px; right:-8px; background:#dc3545; color:#fff; font-size:11px; padding:2px 6px; border-radius:999px; }
+
+  /* Floating whatsapp */
+  .whatsapp-float { position:fixed; right:18px; bottom:18px; width:60px; height:60px; background:#25D366; color:#fff; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 8px 30px rgba(0,0,0,0.18); z-index:1200; text-decoration:none; }
+  .whatsapp-float:hover { transform:translateY(-3px); }
+
+  /* Footer */
+  footer { background:#0b0b0b; color:#fff; padding:28px 0; margin-top:40px; }
+  footer a { color:#fff; text-decoration:none; margin: 0 10px; opacity:0.95; }
+  .social-icon{ font-size:20px; display:inline-block; margin:0 8px; padding:10px; border-radius:8px; opacity:0.95; background:rgba(255,255,255,0.03); }
+
+  /* Responsive tweaks */
+  @media (max-width:768px){
+    .hero { min-height:64vh; padding:30px 12px; background-position: center 30%; }
+    .product-card img { height:180px; }
+  }
+
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-light sticky-top">
+  <div class="container">
+    <a class="navbar-brand" href="#">
+      <!-- Save your circular logo as logo.png in the same folder -->
+      <img src="C:users/admin/downloads/logo.jpeg" alt="Shajar by AU"></a> 
+      <a>Shajar By AU</a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navMain">
+      <ul class="navbar-nav ms-auto align-items-center">
+        <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#shop">Shop</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        <li class="nav-item ms-3">
+          <button class="btn btn-outline-dark cart-btn" id="openCartBtn" data-bs-toggle="modal" data-bs-target="#cartModal" aria-label="Open cart">
+            <i class="fa-solid fa-basket-shopping"></i>
+            <span class="cart-count" id="cartCount">0</span>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header id="home" class="hero">
+  <div class="hero-inner">
+    <h1>Shajar by AU</h1>
+    <p style="opacity:0.95; font-size:18px;">Premium stainless steel jewellery —  Forever shine</p>
+    <div style="margin-top:18px;">
+      <a class="btn btn-gold me-2" href="#shop">Explore Collection</a>
+    </div>
+  </div>
+</header>
+
+<!-- FILTERS -->
+<div class="filters container">
+  <button class="filter-btn active" data-filter="all" onclick="applyFilter('all')">All</button>
+  <button class="filter-btn" data-filter="handcuffs" onclick="applyFilter('handcuffs')">Handcuffs</button>
+  <button class="filter-btn" data-filter="lockets" onclick="applyFilter('lockets')">Lockets</button>
+  <button class="filter-btn" data-filter="bracelets" onclick="applyFilter('bracelets')">Bracelets</button>
+  <button class="filter-btn" data-filter="earings" onclick="applyFilter('earings')">Earings</button>
+</div>
+
+<!-- PRODUCTS GRID -->
+<section id="shop" class="container my-5">
+  <h2 class="text-center mb-4" style="font-weight:700">Featured Collection</h2>
+
+  <div class="row g-4" id="productsGrid">
+    <!-- JS will render product cards here -->
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="container my-5 text-center">
+  <h3 style="font-weight:700">Get in Touch</h3>
+  <p>Email: <a href="mailto:shajarbyau@gmail.com">shajarbyau@gmail.com</a> &nbsp; • &nbsp; Phone: <a href="tel:+923711030814">03711030814</a></p>
+  <div style="margin-top:12px;">
+    <a class="social-icon" href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+    <a class="social-icon" href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+    <a class="social-icon" href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+  </div>
+</section>
+
+<!-- FLOATING WHATSAPP -->
+<a id="whatsFloat" class="whatsapp-float" target="_blank" href="#">
+  <i class="fa-brands fa-whatsapp fa-lg"></i>
+</a>
+
+<!-- CART MODAL -->
+<div class="modal fade" id="cartModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Your Cart</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div id="cartItemsContainer"></div>
+
+        <div class="d-flex justify-content-between align-items-center mt-3">
+          <div>
+            <small class="text-muted">Shipping estimate may vary.</small>
+          </div>
+          <div>
+            <div><strong>Subtotal:</strong> <span id="cartSubtotal">PKR 0</span></div>
+            <div class="text-muted" style="font-size:13px">Taxes & shipping calculated at checkout</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer d-flex justify-content-between">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Continue shopping</button>
+        <div>
+          <button id="clearCartBtn" class="btn btn-outline-danger me-2">Clear Cart</button>
+          <button id="checkoutBtn" class="btn btn-gold">Checkout via WhatsApp</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="text-center">
+  <div class="container">
+    <p style="margin-bottom:6px; font-weight:700;">Shajar by AU — Premium Stainless Steel Jewellery</p>
+    <div style="margin-bottom:6px">
+      <a class="social-icon" href="#"><i class="fa-brands fa-instagram"></i></a>
+      <a class="social-icon" href="#"><i class="fa-brands fa-facebook"></i></a>
+      <a class="social-icon" href="#"><i class="fa-brands fa-tiktok"></i></a>
+      <a class="social-icon" href="#"><i class="fa-brands fa-whatsapp"></i></a>
+    </div>
+    <small style="opacity:0.9">© <span id="year"></span> Shajar by AU. All rights reserved.</small>
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+/* ---------------------------
+  DATA: Products
+  Add more product objects to expand catalog
+---------------------------- */
+const products = [
+   { id: 'r1', title: 'Stainless Steel Handcuff', category: 'handcuffs', price: 1000, img: 'C:users/admin/downloads/handcuff3.jpeg' },
+  { id: 'r2', title: 'Stainless Steels Handcuffs', category: 'handcuffs', price: 1000, img: 'C:users/admin/downloads/handcuff1.jpeg' },
+  { id: 'n1', title: 'Heart Pendant', category: 'lockets', price: 1000, img: 'C:users/admin/downloads/pendant.jpeg' },
+  { id: 'n2', title: 'LV style locket', category: 'lockets', price: 1000, img: 'C:users/admin/downloads/locket.jpeg' },
+  { id: 'n7', title: 'Trendy Locket', category: 'lockets', price: 1000, img: 'C:users/admin/downloads/locket7.jpeg' },
+  { id: 'n6', title: 'Chain', category: 'lockets', price: 1000, img: 'C:users/admin/downloads/locket6.jpeg' },
+  { id: 'r3', title: 'Stainless Steels Handcuffs', category: 'handcuffs', price: 1000, img: 'C:users/admin/downloads/handcuff2.jpeg' },
+  { id: 'n3', title: 'Trendy Locket', category: 'lockets', price: 1000, img: 'C:users/admin/downloads/locket1.jpeg' },
+  { id: 'b3', title: 'New Style Bracelet', category: 'bracelets', price: 1000, img: 'C:users/admin/downloads/bangles.jpeg' },
+  { id: 'r4', title: 'Stainless Steels Handcuffs', category: 'handcuffs', price: 1000, img: 'C:users/admin/downloads/handcuff.jpeg' },
+  { id: 'r5', title: 'Stainless Steels Handcuffs', category: 'handcuffs', price: 1000, img: 'C:users/admin/downloads/handcuff4.jpeg' },
+  { id: 'r6', title: 'Stainless Steels Handcuffs', category: 'handcuffs', price: 1000, img: 'C:users/admin/downloads/handcuff5.jpeg' },
+  { id: 'n4', title: 'New Style Pendant', category: 'lockets', price: 1000, img: 'C:users/admin/downloads/locket2.jpeg' },
+  { id: 'n8', title: 'Butterfly Pendant', category: 'lockets', price: 1000, img: 'C:users/admin/downloads/locket3.jpeg' },
+  { id: 'n5', title: 'Butterfly Pendant With Earings', category: 'lockets', price: 1200, img: 'C:users/admin/downloads/locket4.jpeg' },
+  { id: 'e3', title: 'Stud Gem Earings', category: 'earings', price: 450, img: 'C:users/admin/downloads/earings.jpeg' }
+];
+
+/* ---------------------------
+  CART STATE (localStorage)
+---------------------------- */
+let cart = JSON.parse(localStorage.getItem('shajar_cart_v1')) || [];
+
+/* ---------------------------
+  DOM refs
+---------------------------- */
+const productsGrid = document.getElementById('productsGrid');
+const cartCount = document.getElementById('cartCount');
+const cartItemsContainer = document.getElementById('cartItemsContainer');
+const cartSubtotal = document.getElementById('cartSubtotal');
+const whatsFloat = document.getElementById('whatsFloat');
+const yearEl = document.getElementById('year');
+
+/* ---------------------------
+  Helpers
+---------------------------- */
+function formatPKR(x){ return 'PKR ' + Number(x).toLocaleString('en-PK'); }
+function saveCart(){ localStorage.setItem('shajar_cart_v1', JSON.stringify(cart)); updateCartUI(); }
+function updateCartUI(){
+  cartCount.textContent = cart.reduce((s,i)=> s + i.qty, 0);
+  renderCartItems();
+}
+
+/* ---------------------------
+  Render products
+---------------------------- */
+function renderProducts(filter='all'){
+  productsGrid.innerHTML = '';
+  const list = products.filter(p => filter==='all' ? true : p.category === filter);
+  if(list.length === 0){
+    productsGrid.innerHTML = '<div class="col-12 text-center text-muted">No products found</div>';
+    return;
+  }
+  list.forEach(p => {
+    const col = document.createElement('div');
+    col.className = 'col-md-4';
+    col.innerHTML = `
+      <div class="product-card">
+        <img src="${p.img}" alt="${escapeHtml(p.title)}">
+        <div class="p-3">
+          <h5 style="font-weight:700">${escapeHtml(p.title)}</h5>
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <div class="price">${formatPKR(p.price)}</div>
+            <div class="text-muted" style="font-size:13px">${capitalize(p.category)}</div>
+          </div>
+          <div class="d-grid gap-2">
+            <button class="btn btn-dark add-btn" data-id="${p.id}"><i class="fa-solid fa-cart-plus me-2"></i>Add to cart</button>
+            <a class="btn btn-outline-success" target="_blank" href="${waLinkSingle(p)}"><i class="fa-brands fa-whatsapp me-2"></i>Order on WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    `;
+    productsGrid.appendChild(col);
+  });
+
+  // Attach add to cart listeners
+  document.querySelectorAll('.add-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const id = btn.getAttribute('data-id');
+      addToCartById(id);
+    });
+  });
+}
+
+/* ---------------------------
+  Add to cart functions
+---------------------------- */
+function addToCartById(id){
+  const prod = products.find(p => p.id === id);
+  if(!prod) return;
+  const existing = cart.find(c => c.id === id);
+  if(existing) existing.qty++;
+  else cart.push({ id: prod.id, title: prod.title, price: prod.price, qty: 1 });
+  saveCart();
+  // small visual feedback
+  showToast(`${prod.title} added to cart`);
+}
+
+function showToast(message){
+  // simple toast using alert fallback for simplicity
+  // but create a small floating notification
+  const t = document.createElement('div');
+  t.textContent = message;
+  Object.assign(t.style, {
+    position:'fixed', right:'18px', bottom:'95px', background:'#111', color:'#fff', padding:'10px 14px',
+    borderRadius:'8px', boxShadow:'0 8px 20px rgba(0,0,0,0.2)', zIndex:1500, opacity:0, transition:'transform .18s, opacity .18s'
+  });
+  document.body.appendChild(t);
+  requestAnimationFrame(()=>{ t.style.opacity = 1; t.style.transform = 'translateY(-6px)'; });
+  setTimeout(()=>{ t.style.opacity = 0; t.style.transform = 'translateY(0)'; setTimeout(()=>t.remove(),200); }, 1600);
+}
+
+/* ---------------------------
+  Render cart items (inside modal)
+---------------------------- */
+function renderCartItems(){
+  if(cart.length === 0){
+    cartItemsContainer.innerHTML = '<div class="text-center p-3 text-muted">Your cart is empty.</div>';
+    cartSubtotal.textContent = formatPKR(0);
+    updateWhatsAppFloat();
+    return;
+  }
+
+  let html = '<div class="list-group">';
+  cart.forEach(it => {
+    html += `
+      <div class="list-group-item d-flex align-items-center gap-3">
+        <div style="width:72px; height:72px; background:#f5f5f5; border-radius:8px; display:flex; align-items:center; justify-content:center;">
+          <img src="${getProductImage(it.id)}" alt="" style="max-width:100%; max-height:100%; object-fit:cover; border-radius:6px;">
+        </div>
+        <div class="flex-grow-1">
+          <div style="font-weight:700">${escapeHtml(it.title)}</div>
+          <div class="text-muted" style="font-size:13px">${formatPKR(it.price)} each</div>
+          <div class="mt-2 d-flex align-items-center gap-2">
+            <button class="btn btn-sm btn-outline-secondary qty-decrease" data-id="${it.id}">-</button>
+            <div style="min-width:32px; text-align:center">${it.qty}</div>
+            <button class="btn btn-sm btn-outline-secondary qty-increase" data-id="${it.id}">+</button>
+            <button class="btn btn-sm btn-outline-danger ms-3 remove-item" data-id="${it.id}"><i class="fa-solid fa-trash"></i></button>
+          </div>
+        </div>
+        <div style="min-width:110px; text-align:right">
+          <div style="font-weight:700">${formatPKR(it.price * it.qty)}</div>
+        </div>
+      </div>
+    `;
+  });
+  html += '</div>';
+  cartItemsContainer.innerHTML = html;
+
+  // wire controls
+  document.querySelectorAll('.qty-increase').forEach(btn => btn.addEventListener('click', () => changeQty(btn.dataset.id, +1)));
+  document.querySelectorAll('.qty-decrease').forEach(btn => btn.addEventListener('click', () => changeQty(btn.dataset.id, -1)));
+  document.querySelectorAll('.remove-item').forEach(btn => btn.addEventListener('click', () => { removeItem(btn.dataset.id); }));
+
+  const subtotal = cart.reduce((s,i) => s + i.price * i.qty, 0);
+  cartSubtotal.textContent = formatPKR(subtotal);
+
+  updateWhatsAppFloat();
+}
+
+/* ---------------------------
+  Cart helpers: image, qty, remove
+---------------------------- */
+function getProductImage(id){
+  const p = products.find(x => x.id === id);
+  return p ? p.img : 'https://via.placeholder.com/120';
+}
+function changeQty(id, delta){
+  const idx = cart.findIndex(c => c.id === id);
+  if(idx === -1) return;
+  cart[idx].qty += delta;
+  if(cart[idx].qty < 1) cart[idx].qty = 1;
+  saveCart();
+}
+function removeItem(id){
+  cart = cart.filter(c => c.id !== id);
+  saveCart();
+}
+function clearCart(){
+  cart = [];
+  saveCart();
+}
+
+/* ---------------------------
+  Checkout via WhatsApp
+  Constructs a WhatsApp message with the cart summary
+---------------------------- */
+function checkoutWhatsApp(){
+  if(cart.length === 0){
+    alert('Your cart is empty.');
+    return;
+  }
+  const lines = cart.map(item => `${item.qty}x ${item.title} — PKR ${item.price * item.qty}`);
+  const subtotal = cart.reduce((s,i) => s + i.price * i.qty, 0);
+  lines.push('----------------------');
+  lines.push(`Subtotal: PKR ${subtotal}`);
+  lines.push('');
+  lines.push('Name:'); lines.push('Phone:'); lines.push('Address:');
+  const message = encodeURIComponent('Order from Shajar by AU\n\n' + lines.join('\n'));
+  const waUrl = `https://wa.me/923711030814?text=${message}`;
+  window.open(waUrl, '_blank');
+}
+
+/* ---------------------------
+  WhatsApp float (always open with cart summary)
+---------------------------- */
+function updateWhatsAppFloat(){
+  if(cart.length === 0){
+    whatsFloat.href = 'https://wa.me/923711030814?text=' + encodeURIComponent('Hello! I want to order from Shajar by AU');
+  } else {
+    const lines = cart.map(it => `${it.qty}x ${it.title}`);
+    const message = encodeURIComponent('I want to order:\n' + lines.join('\n') + '\n\nPlease confirm availability and delivery.');
+    whatsFloat.href = `https://wa.me/923711030814?text=${message}`;
+  }
+}
+
+/* ---------------------------
+  Filter logic (buttons)
+---------------------------- */
+function applyFilter(cat){
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  const btn = Array.from(document.querySelectorAll('.filter-btn')).find(x => x.dataset.filter === cat);
+  if(btn) btn.classList.add('active');
+  renderProducts(cat === 'all' ? 'all' : cat);
+}
+
+/* ---------------------------
+  Utility helpers
+---------------------------- */
+function escapeHtml(str){ return String(str).replace(/[&<>"']/g, s => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[s])); }
+function capitalize(s){ return s.charAt(0).toUpperCase()+s.slice(1); }
+function waLinkSingle(p){ // product-level WA quick order
+  const msg = encodeURIComponent(`Hello, I want to order: ${p.title} — PKR ${p.price}`);
+  return `https://wa.me/923711030814?text=${msg}`;
+}
+
+/* ---------------------------
+  Init
+---------------------------- */
+document.getElementById('year').textContent = new Date().getFullYear();
+renderProducts('all');
+updateCartUI();
+updateWhatsAppFloat();
+
+/* Events */
+document.getElementById('clearCartBtn').addEventListener('click', () => { if(confirm('Clear the cart?')){ clearCart(); }});
+document.getElementById('checkoutBtn').addEventListener('click', () => { checkoutWhatsApp(); });
+
+/* Click outside modal closes? bootstrap handles */
+
+</script>
+
+</body>
+</html>
