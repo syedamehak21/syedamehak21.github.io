@@ -28,7 +28,7 @@
     text-align:center;
     padding: 40px 20px;
     position:relative;
-    background: url('C:users/admin/downloads/jewl.jpg') center/cover no-repeat; /* Put your hero image file named hero.jpg in same folder */
+    background: url('jewl.jpg') center/cover no-repeat; /* Put your hero image file named hero.jpg in same folder */
   }
   .hero::before{
     content:"";
@@ -80,7 +80,7 @@
   <div class="container">
     <a class="navbar-brand" href="#">
       <!-- Save your circular logo as logo.png in the same folder -->
-      <img src="C:users/admin/downloads/logo.jpeg" alt="Shajar by AU"></a> 
+      <img src="logo.jpeg" alt="Shajar by AU"></a> 
       <a>Shajar By AU</a>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain">
@@ -204,22 +204,22 @@
   Add more product objects to expand catalog
 ---------------------------- */
 const products = [
-   { id: 'r1', title: 'Stainless Steel Handcuff', category: 'handcuffs', price: 1000, img: 'C:users/admin/downloads/handcuff3.jpeg' },
-  { id: 'r2', title: 'Stainless Steels Handcuffs', category: 'handcuffs', price: 1000, img: 'C:users/admin/downloads/handcuff1.jpeg' },
-  { id: 'n1', title: 'Heart Pendant', category: 'lockets', price: 1000, img: 'C:users/admin/downloads/pendant.jpeg' },
-  { id: 'n2', title: 'LV style locket', category: 'lockets', price: 1000, img: 'C:users/admin/downloads/locket.jpeg' },
-  { id: 'n7', title: 'Trendy Locket', category: 'lockets', price: 1000, img: 'C:users/admin/downloads/locket7.jpeg' },
-  { id: 'n6', title: 'Chain', category: 'lockets', price: 1000, img: 'C:users/admin/downloads/locket6.jpeg' },
-  { id: 'r3', title: 'Stainless Steels Handcuffs', category: 'handcuffs', price: 1000, img: 'C:users/admin/downloads/handcuff2.jpeg' },
-  { id: 'n3', title: 'Trendy Locket', category: 'lockets', price: 1000, img: 'C:users/admin/downloads/locket1.jpeg' },
-  { id: 'b3', title: 'New Style Bracelet', category: 'bracelets', price: 1000, img: 'C:users/admin/downloads/bangles.jpeg' },
-  { id: 'r4', title: 'Stainless Steels Handcuffs', category: 'handcuffs', price: 1000, img: 'C:users/admin/downloads/handcuff.jpeg' },
-  { id: 'r5', title: 'Stainless Steels Handcuffs', category: 'handcuffs', price: 1000, img: 'C:users/admin/downloads/handcuff4.jpeg' },
-  { id: 'r6', title: 'Stainless Steels Handcuffs', category: 'handcuffs', price: 1000, img: 'C:users/admin/downloads/handcuff5.jpeg' },
-  { id: 'n4', title: 'New Style Pendant', category: 'lockets', price: 1000, img: 'C:users/admin/downloads/locket2.jpeg' },
-  { id: 'n8', title: 'Butterfly Pendant', category: 'lockets', price: 1000, img: 'C:users/admin/downloads/locket3.jpeg' },
-  { id: 'n5', title: 'Butterfly Pendant With Earings', category: 'lockets', price: 1200, img: 'C:users/admin/downloads/locket4.jpeg' },
-  { id: 'e3', title: 'Stud Gem Earings', category: 'earings', price: 450, img: 'C:users/admin/downloads/earings.jpeg' }
+   { id: 'r1', title: 'Stainless Steel Handcuff', category: 'handcuffs', price: 1000, img: 'handcuff3.jpeg' },
+  { id: 'r2', title: 'Stainless Steels Handcuffs', category: 'handcuffs', price: 1000, img: 'handcuff1.jpeg' },
+  { id: 'n1', title: 'Heart Pendant', category: 'lockets', price: 1000, img: 'pendant.jpeg' },
+  { id: 'n2', title: 'LV style locket', category: 'lockets', price: 1000, img: 'locket.jpeg' },
+  { id: 'n7', title: 'Trendy Locket', category: 'lockets', price: 1000, img: 'locket7.jpeg' },
+  { id: 'n6', title: 'Chain', category: 'lockets', price: 1000, img: 'locket6.jpeg' },
+  { id: 'r3', title: 'Stainless Steels Handcuffs', category: 'handcuffs', price: 1000, img: 'handcuff2.jpeg' },
+  { id: 'n3', title: 'Trendy Locket', category: 'lockets', price: 1000, img: 'locket1.jpeg' },
+  { id: 'b3', title: 'New Style Bracelet', category: 'bracelets', price: 1000, img: 'bangles.jpeg' },
+  { id: 'r4', title: 'Stainless Steels Handcuffs', category: 'handcuffs', price: 1000, img: 'handcuff.jpeg' },
+  { id: 'r5', title: 'Stainless Steels Handcuffs', category: 'handcuffs', price: 1000, img: 'handcuff4.jpeg' },
+  { id: 'r6', title: 'Stainless Steels Handcuffs', category: 'handcuffs', price: 1000, img: 'handcuff5.jpeg' },
+  { id: 'n4', title: 'New Style Pendant', category: 'lockets', price: 1000, img: 'locket2.jpeg' },
+  { id: 'n8', title: 'Butterfly Pendant', category: 'lockets', price: 1000, img: 'locket3.jpeg' },
+  { id: 'n5', title: 'Butterfly Pendant With Earings', category: 'lockets', price: 1200, img: 'locket4.jpeg' },
+  { id: 'e3', title: 'Stud Gem Earings', category: 'earings', price: 450, img: 'earings.jpeg' }
 ];
 
 /* ---------------------------
@@ -458,3 +458,4 @@ document.getElementById('checkoutBtn').addEventListener('click', () => { checkou
 
 </body>
 </html>
+
